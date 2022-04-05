@@ -125,10 +125,10 @@ STATIC_ROOT = BASE_DIR / 'static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-try:
-    from .local_settings import *
-except:
-    pass
+#try:
+#    from .local_settings import *
+#except:
+#    pass
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
