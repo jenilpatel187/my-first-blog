@@ -3,6 +3,14 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+COLOR_CHOICES = (
+    ('green','GREEN'),
+    ('blue', 'BLUE'),
+    ('red','RED'),
+    ('white','WHITE'),
+    ('black','BLACK'),
+)
+
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -10,6 +18,7 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    color = models.CharField(max_length=6, choices=COLOR_CHOICES, default='black')
 
     def publish(self):
         self.published_date = timezone.now()
